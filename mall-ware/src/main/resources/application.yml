@@ -1,0 +1,19 @@
+#设置微服务端口
+server:
+  port: 11000
+#数据源配置
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.56.8:3306/mall_wms
+    driver-class-name: com.mysql.jdbc.Driver
+
+#mybatis-plus配置
+mybatis-plus:
+  #指定mapper映射文件路径
+  mapper-locations: classpath:/mapper/**/*.xml
+  #设置主键自增
+  global-config:
+    db-config:
+      id-type: auto
