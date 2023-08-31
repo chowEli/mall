@@ -1,0 +1,66 @@
+spring:
+  cloud:
+    #网关路由规则
+    gateway:
+      routes:
+        #路由id，- 意思是数组可以有多个
+        - id: baidu_route
+          #需要路由到的地址
+          uri: https://www.baidu.com
+          #断言（判断方法是否路由）
+          predicates:
+            - Query=url,baidu
+
+        - id: qq_route
+          #需要路由到的地址
+          uri: https://www.qq.com
+          #断言（判断方法是否路由）
+          predicates:
+            - Query=url,qq
+
+        #商品服务的路由
+        - id: product_route
+          #需要路由到的地址
+          #lb:负载均衡到指定的服务
+          uri: lb://mall-product
+          #断言（判断方法是否路由）
+          predicates:
+            - Path=/api/product/**
+          #路径重写
+          filters:
+            - RewritePath=/api/(?<segment>/?.*),/$\{segment}
+
+        #第三方工具系统路由
+        - id: third_party_route
+          #lb:负载均衡到指定的服务
+          uri: lb://mall-third-party
+          #断言（判断方法是否路由）
+          predicates:
+            - Path=/api/thirdParty/**
+          #路径重写
+          filters:
+            - RewritePath=/api/thirdParty/(?<segment>/?.*),/$\{segment}
+
+        - id: admin_route
+          #需要路由到的地址
+          #lb:负载均衡到指定的服务
+          uri: lb://renren-fast
+          #断言（判断方法是否路由）
+          predicates:
+          #前端项目，/api
+            - Path=/api/**
+          #需要把这个请求路径 http://localhost:88/captcha.jpg  ==> 变成真正的请求路径 http://localhost:88/renren-fast/captcha.jpg
+          #使用重写路径
+          filters:
+            - RewritePath=/api/(?<segment>/?.*),/renren-fast/$\{segment}
+
+
+
+
+    nacos:
+      server-addr: 127.0.0.1:8848
+  application:
+    name: mall-gateway
+server:
+  port: 88
+

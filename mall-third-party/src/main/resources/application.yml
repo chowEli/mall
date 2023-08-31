@@ -1,0 +1,24 @@
+#设置微服务端口
+server:
+  port: 30000
+
+  #配置微服务名称
+  application:
+    name: mall-third-party
+  #配置nacos注册中心地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+logging:
+  level:
+    com.zyl.mall: debug
+
+alibaba:
+  cloud:
+    access-key: LTAI5tQovvNT47zweNJx9Zdx
+    secret-key: eYhFAtzrQbw5aiCdSqlYe6l202kO2S
+    oss:
+      endpoint: oss-cn-chengdu.aliyuncs.com
+      bucket: mall-zyl-zj
