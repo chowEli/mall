@@ -30,8 +30,8 @@ class MallThirdPartyApplicationTests {
 //        // Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。
 //        String endpoint = "oss-cn-chengdu.aliyuncs.com";
 //        // 填写RAM用户的访问密钥（AccessKey ID和AccessKey Secret）。
-//        String accessKeyId = "LTAI5tQovvNT47zweNJx9Zdx";
-//        String accessKeySecret = "eYhFAtzrQbw5aiCdSqlYe6l202kO2S";
+//        String accessKeyId = "";
+//        String accessKeySecret = "";
 //
 		String bucketName = "mall-zyl-zj";
 //
