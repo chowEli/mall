@@ -17,8 +17,8 @@ logging:
 
 alibaba:
   cloud:
-    access-key: LTAI5tQovvNT47zweNJx9Zdx
-    secret-key: eYhFAtzrQbw5aiCdSqlYe6l202kO2S
+    access-key:
+    secret-key:
     oss:
       endpoint: oss-cn-chengdu.aliyuncs.com
       bucket: mall-zyl-zj
